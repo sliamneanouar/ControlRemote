@@ -9,6 +9,10 @@ import { NevbarLeftComponent } from './Navbar/nevbar-left/nevbar-left.component'
 import { NavbarRightComponent } from './Navbar/navbar-right/navbar-right.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ModalComponent } from './modal/modal.component';
+// import ngx-translate and the http loader
+import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 
 const appRoutes: Routes = [
     // {path: 'navbar', component: NavbarComponent},
@@ -30,9 +34,21 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: 
     CommonModule,
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes, { useHash: true }),
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        })
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+    return new TranslateHttpLoader(http);
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding, Input } from "@angular/core";
 import { Router } from "@angular/router";
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +11,8 @@ export class AppComponent {
   title = 'app';
   counter: number;
 
-  constructor() {
+  constructor(private translate: TranslateService) {
+    translate.setDefaultLang('fr');
     this.counter = 0;
     var META_DATA_FILE: any = window.document.getElementsByName( 'configFile' );
     var fileName = META_DATA_FILE[0].content;
