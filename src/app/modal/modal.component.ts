@@ -11,15 +11,25 @@ import {NgbModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 export class ModalComponent  {
   public _titleButton: string = "open";
   public _titleModal: string = "";
+  public _typeModal: string = "signUp";
 
   @Input()
-    public set titleButton(value: string) {
-        this._titleButton = value;
+    public set typeModal(value: string) {
+        this._typeModal = value;
     };
 
-    public get titleButton(): string {
-        return this._titleButton;
+    public get typeModal(): string {
+        return this._typeModal;
     };
+
+    @Input()
+      public set titleButton(value: string) {
+          this._titleButton = value;
+      };
+
+      public get titleButton(): string {
+          return this._titleButton;
+      };
 
     @Input()
       public set titleModal(value: string) {
@@ -33,7 +43,7 @@ export class ModalComponent  {
   constructor(private modalService: NgbModal) {}
 
   open(content) {
-    this.modalService.open(content,  { size: 'lg', centered: true });
+    this.modalService.open(content,  { size: 'sm', centered: true });
   }
 
 }

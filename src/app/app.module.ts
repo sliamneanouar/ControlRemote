@@ -13,6 +13,9 @@ import { ModalComponent } from './modal/modal.component';
 import {TranslateModule, TranslateLoader} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { UserInfoComponent } from './user-info/user-info.component';
+import { LanguageComponent } from './language/language.component';
 
 const appRoutes: Routes = [
     // {path: 'navbar', component: NavbarComponent},
@@ -27,10 +30,13 @@ const routing: ModuleWithProviders = RouterModule.forRoot(appRoutes, { useHash: 
     NavbarComponent,
     NevbarLeftComponent,
     NavbarRightComponent,
-    ModalComponent
+    ModalComponent,
+    UserInfoComponent,
+    LanguageComponent
   ],
   imports: [
     BrowserModule,
+    AngularFontAwesomeModule,
     CommonModule,
     AlertModule.forRoot(),
     RouterModule.forRoot(appRoutes, { useHash: true }),
