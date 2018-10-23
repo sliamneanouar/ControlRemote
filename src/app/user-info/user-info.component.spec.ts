@@ -22,10 +22,12 @@ describe('UserInfoComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-  it('_displayLabel init', () => {
+  it('_displayLabel init & right typeof', () => {
+    expect(component._displayLabel).toEqual(jasmine.any(Boolean));
     component._displayLabel = false;
   });
   it('_displayImage init', () => {
-    typeof component._displayImage = false;
+    expect(component._displayImage).toEqual(jasmine.any(Boolean));
+    component._displayImage = false;
   });
 });

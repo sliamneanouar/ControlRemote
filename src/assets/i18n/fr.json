@@ -6,5 +6,8 @@
     "modal": {
       "titleSignUp" : "Nouveau  compte",
       "titleSignIn" : "Connexion"
+    },
+    "language": {
+      "languageFlag": "France"
     }
 }

@@ -12,7 +12,7 @@ export class AppComponent {
   counter: number;
 
   constructor(private translate: TranslateService) {
-    translate.setDefaultLang('fr');
+    // translate.setDefaultLang('en');
     this.counter = 0;
     var META_DATA_FILE: any = window.document.getElementsByName( 'configFile' );
     var fileName = META_DATA_FILE[0].content;
